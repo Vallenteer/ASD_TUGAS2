@@ -1,0 +1,6 @@
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.exe.config
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.csprojResolveAssemblyReference.cache
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.exe
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.pdb
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.exe
+D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.pdb
