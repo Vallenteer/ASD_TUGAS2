@@ -35,7 +35,7 @@ namespace ASD_TUGAS2
             //Console.BackgroundColor = ConsoleColor.White;
             //Console.ForegroundColor = ConsoleColor.Black;
             //masukin file
-            //Console.WriteLine("LOADING....");
+            Console.WriteLine("LOADING....");
             Baca_hitung();
         }
         public static void Baca_hitung()
@@ -52,10 +52,13 @@ namespace ASD_TUGAS2
             while ((line = sr.ReadLine()) != null)
             {
                 string[] result = rgx.Split(line);
-                //membuat baris list kata2
+                //membuat baris list kata2 //disini yang lama...
                 foreach (string element in result)
                 {
-                    Mendata(element);
+                    //test biar tau waktu baca, cm butuh paling lama 5 detik,
+                    //Console.WriteLine("a");
+                    // ini yang lama, dibawah ini buat tulis ke file
+                     Mendata(element);
                 }
                 
 
@@ -86,6 +89,7 @@ namespace ASD_TUGAS2
                 // Create a file to write to. kalau belom ada filenya 
                 using (StreamWriter swnew = File.CreateText(filecp))
                 {
+                    
                     swnew.WriteLine(input);
                 }
             }
