@@ -8,35 +8,24 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Text.RegularExpressions;
+// buat hashtable
+using System.Collections;
 
 namespace ASD_TUGAS2
 {
     class Program
     {
-        // setting warna console
-        [DllImport("kernel32.dll", ExactSpelling = true)]
-
-        private static extern IntPtr GetConsoleWindow();
-        private static IntPtr ThisConsole = GetConsoleWindow();
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        private const int HIDE = 0;
-        private const int MAXIMIZE = 3;
-        private const int MINIMIZE = 6;
-        private const int RESTORE = 9;
+      
         static void Main(string[] args)
         {
-            //setting ukuran console,, gk jalan... somehow
-            //Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            //ShowWindow(ThisConsole, MAXIMIZE);
-            ////setting warna console dan tulisan
-            //Console.BackgroundColor = ConsoleColor.White;
-            //Console.ForegroundColor = ConsoleColor.Black;
-            //masukin file
             Console.WriteLine("LOADING....");
             Baca_hitung();
+
+            // bkin layar buat masukin kata yang dicari
+            // lalu edit distance yang diinginkan
+
+            // buat koding untuk edit distance 
+            // buat koding untuk sorting
         }
         public static void Baca_hitung()
         {
@@ -45,7 +34,7 @@ namespace ASD_TUGAS2
             string pattern = @"[\s\n\p{P}-[']]+";
             Regex rgx = new Regex(pattern);
             // ampe sini
-
+            Hashtable kata = new Hashtable();
             string dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string file = dir + @"\hound.txt";
             StreamReader sr = new StreamReader(file);
@@ -58,28 +47,42 @@ namespace ASD_TUGAS2
                     //test biar tau waktu baca, cm butuh paling lama 5 detik,
                     //Console.WriteLine("a");
                     // ini yang lama, dibawah ini buat tulis ke file
-                     Mendata(element);
+                     //Mendata(element);
+
+                    //coba pke hashtable
+                    if (kata.ContainsKey(element.ToLower()))
+                    {
+                        int nilaidulu = (int)kata[element.ToLower()];
+                        kata[element.ToLower()] = nilaidulu + 1;
+
+                    }
+                    else
+                    {
+                        kata.Add(element.ToLower(), 1);
+                    }
+                     
                 }
                 
 
 
             }
             sr.Close();
+            //cuma ngetes aja (bisa dihapus pas kumpul)
+                    //foreach (DictionaryEntry entry in kata)
+                    //{
+                    //    Console.WriteLine("{0}, {1}", entry.Key, entry.Value);
+                    //    Mendata(entry.Key.ToString(), entry.Value.ToString());
+                    //}
+            
+            
 
-            //string[] words = rgx.Split(text);
-            //Console.WriteLine(words[0]);
-            //Console.WriteLine(words[1]);
-            //Console.WriteLine(words[2]);
-            //Console.WriteLine(words[3]);
             Console.WriteLine("selesai");
             Console.ReadLine();
             //Console.Clear();
-
-
-
         }
-
-        public static void Mendata(string input)
+        
+        // buat cek, jadi masukin ke file,, kalau ud jadi bisa diapus
+        public static void Mendata(string input, string input2)
         {
             string dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string filecp = dir + @"\data.txt";
@@ -90,7 +93,7 @@ namespace ASD_TUGAS2
                 using (StreamWriter swnew = File.CreateText(filecp))
                 {
                     
-                    swnew.WriteLine(input);
+                    swnew.WriteLine(input + "\t" + input2);
                 }
             }
             //kalau ud ada file yang mau ditulis
@@ -99,7 +102,7 @@ namespace ASD_TUGAS2
                 using (FileStream fs = new FileStream(filecp, FileMode.Append, FileAccess.Write))
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
-                    sw.WriteLine(input);
+                    sw.WriteLine(input + "\t" + input2);
                 }
             }
         }
