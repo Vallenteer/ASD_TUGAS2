@@ -15,41 +15,53 @@ namespace ASD_TUGAS2
 {
     class Program
     {
-      
+
+        
         static void Main(string[] args)
         {
             Hashtable kata= Baca_hitung();
             Console.Clear();
-
             // bkin layar buat masukin kata yang dicari
             // lalu edit distance yang diinginkan
-
+           
             string select_words;
             int edit_toleran;
             Console.Write("Masukan Kata : ");
             select_words = Console.ReadLine();
             Console.Write("Masukan Edit Distance ( minimum 0 ) : ");
             edit_toleran = Convert.ToInt32(Console.ReadLine());
-            
 
+            int counter = 0;
             //buat bandingin dan buat keluarin, not sorting yet...
             foreach (string key in kata.Keys)
             {
                 int editdistance = edit_distance(select_words, key);
                 if (editdistance <= edit_toleran)
                 {
+
+                    //buat nulis ajah
                     Console.WriteLine("{0} \t  {1} \t {2}", key, editdistance, kata[key]);
+                    counter++;
                 }
             }
-            
+            if (counter == 0)
+            {
+                Console.WriteLine("Tidak ada Kata yang sesuai");
 
+            }
+
+            
             // buat koding untuk edit distance 
             // buat koding untuk sorting
             Console.ReadLine();
         }
 
+
+
         public static int edit_distance( string kata1, string kata2)
         {
+            // sumber : http://www.dotnetperls.com/
+
             int asli = kata1.Length;
             int  banding= kata2.Length;
             int[,] toleransi = new int[asli + 1, banding + 1];
@@ -132,45 +144,12 @@ namespace ASD_TUGAS2
 
             }
             sr.Close();
-            //cuma ngetes aja (bisa dihapus pas kumpul)
-                    //foreach (DictionaryEntry entry in kata)
-                    //{
-                    //    Console.WriteLine("{0}, {1}", entry.Key, entry.Value);
-                    //    Mendata(entry.Key.ToString(), entry.Value.ToString());
-                    //}
-            
-            
-
             Console.WriteLine("selesai");
             return kata;
             //Console.ReadLine();
             //Console.Clear();
         }
         
-        // buat cek, jadi masukin ke file,, kalau ud jadi bisa diapus
-        public static void Mendata(string input, string input2)
-        {
-            string dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string filecp = dir + @"\data.txt";
-            //StreamReader sr = new StreamReader(file);
-            if (!File.Exists(filecp))
-            {
-                // Create a file to write to. kalau belom ada filenya 
-                using (StreamWriter swnew = File.CreateText(filecp))
-                {
-                    
-                    swnew.WriteLine(input + "\t" + input2);
-                }
-            }
-            //kalau ud ada file yang mau ditulis
-            else
-            {
-                using (FileStream fs = new FileStream(filecp, FileMode.Append, FileAccess.Write))
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    sw.WriteLine(input + "\t" + input2);
-                }
-            }
-        }
+        
     }
 }
