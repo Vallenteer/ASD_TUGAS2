@@ -38,7 +38,7 @@ namespace ASD_TUGAS2
                 int editdistance = edit_distance(select_words, key);
                 if (editdistance <= edit_toleran)
                 {
-
+                    //var mana yang jadi array yang udah buat edit distance?
                     //buat nulis ajah
                     Console.WriteLine("{0} \t  {1} \t {2}", key, editdistance, kata[key]);
                     counter++;
@@ -123,6 +123,8 @@ namespace ASD_TUGAS2
             {
                 string[] result = rgx.Split(line);
                 //membuat baris list kata2 //disini yang lama...
+                Quicksort(result, 0, result.Length - 1); //harusnya yang baris ini udah bkin sort di sblum hash
+
                 foreach (string element in result)
                 {
 
@@ -149,7 +151,46 @@ namespace ASD_TUGAS2
             //Console.ReadLine();
             //Console.Clear();
         }
-        
-        
+
+        public static void Quicksort(IComparable[] elements, int left, int right)
+        {
+            int i = left, j = right;
+            IComparable pivot = elements[(left + right) / 2];
+
+            while (i <= j)
+            {
+                while (elements[i].CompareTo(pivot) < 0)
+                {
+                    i++;
+                }
+
+                while (elements[j].CompareTo(pivot) > 0)
+                {
+                    j--;
+                }
+
+                if (i <= j)
+                {
+                    // Swap
+                    IComparable tmp = elements[i];
+                    elements[i] = elements[j];
+                    elements[j] = tmp;
+
+                    i++;
+                    j--;
+                }
+            }
+
+            // Recursive calls
+            if (left < j)
+            {
+                Quicksort(elements, left, j);
+            }
+
+            if (i < right)
+            {
+                Quicksort(elements, i, right);
+            }
+        }
     }
 }

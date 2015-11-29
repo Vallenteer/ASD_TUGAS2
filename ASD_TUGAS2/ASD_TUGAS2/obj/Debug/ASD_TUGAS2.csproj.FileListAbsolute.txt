@@ -4,3 +4,9 @@ D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGA
 D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.pdb
 D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.exe
 D:\Tugas SU\Sem 3\Algo\Tugas\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.pdb
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.exe.config
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.exe
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\bin\Debug\ASD_TUGAS2.pdb
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.csprojResolveAssemblyReference.cache
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.exe
+C:\Users\Alvin Julian\Documents\GitHub\ASD_TUGAS2\ASD_TUGAS2\ASD_TUGAS2\obj\Debug\ASD_TUGAS2.pdb
