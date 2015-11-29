@@ -19,7 +19,8 @@ namespace ASD_TUGAS2
         
         static void Main(string[] args)
         {
-            Hashtable kata= Baca_hitung();
+            //Hashtable kata= Baca_hitung();
+            
             Console.Clear();
             // bkin layar buat masukin kata yang dicari
             // lalu edit distance yang diinginkan
@@ -31,6 +32,26 @@ namespace ASD_TUGAS2
             Console.Write("Masukan Edit Distance ( minimum 0 ) : ");
             edit_toleran = Convert.ToInt32(Console.ReadLine());
 
+            // array ini bsa di sort, makasih :D tapi lom ada nilai edit distance .-.
+            string[] kata_array= masuk_kata(select_words,edit_toleran);
+
+            //foreach (var item in kata_array)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //buat bandingin dan buat keluarin, not sorting yet...
+
+
+
+           
+            Console.ReadLine();
+        }
+
+        public static string[] masuk_kata(string select_words, int edit_toleran)
+        {
+            List<string> list_kata = new List<string>();
+       
+            Hashtable kata = Baca_hitung();
             int counter = 0;
             //buat bandingin dan buat keluarin, not sorting yet...
             foreach (string key in kata.Keys)
@@ -38,24 +59,20 @@ namespace ASD_TUGAS2
                 int editdistance = edit_distance(select_words, key);
                 if (editdistance <= edit_toleran)
                 {
-                    //var mana yang jadi array yang udah buat edit distance?
-                    //buat nulis ajah
-                    Console.WriteLine("{0} \t  {1} \t {2}", key, editdistance, kata[key]);
+                    
+                    list_kata.Add((key));
+                    //Console.WriteLine("{0} \t  {1} \t {2}", key, editdistance, kata[key]);
                     counter++;
                 }
             }
             if (counter == 0)
             {
                 Console.WriteLine("Tidak ada Kata yang sesuai");
-
+                
             }
-
-            
-            // buat koding untuk edit distance 
-            // buat koding untuk sorting
-            Console.ReadLine();
+            string[] kata_array = list_kata.ToArray();
+            return kata_array ;
         }
-
 
 
         public static int edit_distance( string kata1, string kata2)
@@ -109,7 +126,7 @@ namespace ASD_TUGAS2
         static Hashtable Baca_hitung()
         {
 
-            Console.WriteLine("LOADING....");
+           // Console.WriteLine("LOADING....");
             //pattern buat split nya ketmu buahahah
             string line;
             string pattern = @"[\s\n\p{P}-[']]+";
@@ -123,7 +140,7 @@ namespace ASD_TUGAS2
             {
                 string[] result = rgx.Split(line);
                 //membuat baris list kata2 //disini yang lama...
-                Quicksort(result, 0, result.Length - 1); //harusnya yang baris ini udah bkin sort di sblum hash
+                //Quicksort(result, 0, result.Length - 1); //harusnya yang baris ini udah bkin sort di sblum hash
 
                 foreach (string element in result)
                 {
@@ -146,10 +163,11 @@ namespace ASD_TUGAS2
 
             }
             sr.Close();
-            Console.WriteLine("selesai");
+           // Console.WriteLine("selesai");
+            //Console.Clear();
             return kata;
             //Console.ReadLine();
-            //Console.Clear();
+            
         }
 
         public static void Quicksort(IComparable[] elements, int left, int right)
