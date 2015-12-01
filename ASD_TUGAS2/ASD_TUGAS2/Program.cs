@@ -33,24 +33,29 @@ namespace ASD_TUGAS2
             edit_toleran = Convert.ToInt32(Console.ReadLine());
 
             // array ini bsa di sort, makasih :D tapi lom ada nilai edit distance .-.
-            string[] kata_array= masuk_kata(select_words,edit_toleran);
+            string[,] kata_array= masuk_kata(select_words,edit_toleran);
 
-            //foreach (var item in kata_array)
+
+            //for (int i = 0; i < kata_array.GetLength(0); i++)
             //{
-            //    Console.WriteLine(item);
+                
+            //        Console.WriteLine("{0}" +"\t"+"{1}", kata_array[i, 0],kata_array[i,1]);                
             //}
-            //buat bandingin dan buat keluarin, not sorting yet...
+
+               
+                //buat bandingin dan buat keluarin, not sorting yet...
 
 
 
-           
-            Console.ReadLine();
+
+                Console.ReadLine();
         }
 
-        public static string[] masuk_kata(string select_words, int edit_toleran)
+        public static string[,] masuk_kata(string select_words, int edit_toleran)
         {
             List<string> list_kata = new List<string>();
-       
+            List<string> list_distance = new List<string>();
+
             Hashtable kata = Baca_hitung();
             int counter = 0;
             //buat bandingin dan buat keluarin, not sorting yet...
@@ -61,6 +66,7 @@ namespace ASD_TUGAS2
                 {
                     
                     list_kata.Add((key));
+                    list_distance.Add((editdistance.ToString()));
                     //Console.WriteLine("{0} \t  {1} \t {2}", key, editdistance, kata[key]);
                     counter++;
                 }
@@ -70,7 +76,23 @@ namespace ASD_TUGAS2
                 Console.WriteLine("Tidak ada Kata yang sesuai");
                 
             }
-            string[] kata_array = list_kata.ToArray();
+            string[,] kata_array = new string [list_kata.Count, list_distance.Count];
+                //=list_kata.ToArray() ;
+            int panjang1 = list_kata.Count;
+            //Console.WriteLine(list_kata[2]);
+
+
+            for (int i = 0; i < panjang1; i++)
+            {
+                kata_array[i, 0] = list_kata[i];
+                //Console.WriteLine("{0}", kata_array[0, i]);
+                kata_array[i, 1] = list_distance[i];
+            }
+
+            Console.WriteLine("{0}" + "/t" + "{1}", kata_array[0, 0], kata_array[0, 1]);
+            Console.WriteLine("{0}" + "/t" + "{1}", kata_array[1, 0], kata_array[1, 1]);
+            
+
             return kata_array ;
         }
 
