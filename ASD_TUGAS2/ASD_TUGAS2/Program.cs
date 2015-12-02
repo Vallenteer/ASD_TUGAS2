@@ -20,38 +20,54 @@ namespace ASD_TUGAS2
         static void Main(string[] args)
         {
             Hashtable kata = Baca_hitung();
-
+            //menghilangkan enter,,
+            kata.Remove("");
             string select_words, editstring;
             int edit_toleran;
 
             bool kondisi;
+            int cek;
             //looping user supaya tidak exit tanpa perintahnya user
             while (true)
             {
-                Console.Clear();
-                Console.WriteLine("Untuk keluar ketikan -1");
-                Console.Write("Masukan Kata : ");
-                select_words = Console.ReadLine();
+                cek = 0;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Untuk keluar ketikan -1");
+                    Console.Write("Masukan Kata : ");
+                    select_words = Console.ReadLine();
+                    if (select_words != "" && select_words != "\t")
+                    {
+                        cek=1;
+                    }
+                } while (cek==0);
+                
                 if (select_words == "-1")
                 {
                     Environment.Exit(0);
                 }
                 do
                 {
+                    Console.Clear();
+                    Console.WriteLine("Untuk keluar ketikan -1");
+                    Console.WriteLine("Masukan Kata : {0}", select_words);
                     Console.Write("Masukan Edit Distance maksimal ( minimum 0 ) : ");
                     editstring = Console.ReadLine();
                     kondisi = int.TryParse(editstring, out edit_toleran);
                     if (kondisi == true)
                     {
+                        if (edit_toleran < -1)
+                        {
+                            kondisi = false;
+                        }
                         continue;
                     }
                     Console.WriteLine("Angka yang anda masukan salah!");
                     Console.WriteLine("Tekan sembarang untuk memasukan Edit Distance maksimal kembali...");
                     Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("Untuk keluar ketikan -1");
-                    Console.WriteLine("Masukan Kata : {0}", select_words);
-                } while (kondisi == false);
+                   
+                } while (kondisi==false);
 
                 if (edit_toleran == -1)
                 {
@@ -78,16 +94,10 @@ namespace ASD_TUGAS2
                     {
 
                         list_kata.Add((key));
-
                         counter++;
                     }
                 }
-                if (counter == 0)
-                {
-                    Console.WriteLine("Tidak ada Kata yang sesuai");
-                    batas = edit_toleran;
-                }
-                else
+                if (counter != 0)
                 {
                     //cetak sesuai batas
                     string[] kata_array = list_kata.ToArray();
@@ -100,6 +110,11 @@ namespace ASD_TUGAS2
                     list_kata.Clear();
                 }
                 batas++;
+            }
+            if (counter == 0)
+            {
+                Console.WriteLine("Tidak ada Kata yang sesuai");
+                batas = edit_toleran;
             }
             Console.WriteLine("Jumlah Kata yang mempunyai Edit distance maksimal {0} dari kata \"{1}\" adalah = {2}",edit_toleran,select_words,counter );
 
