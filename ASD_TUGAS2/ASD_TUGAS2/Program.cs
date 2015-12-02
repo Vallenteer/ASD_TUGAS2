@@ -84,6 +84,7 @@ namespace ASD_TUGAS2
             List<string> list_kata = new List<string>();
             int counter = 0;
             int batas = 0;
+            int jumlahbateskata = 0;
             while (batas <= edit_toleran)
             {
                 foreach (string key in kata.Keys)
@@ -94,10 +95,12 @@ namespace ASD_TUGAS2
                     {
 
                         list_kata.Add((key));
+                      
                         counter++;
+                        jumlahbateskata++;
                     }
                 }
-                if (counter != 0)
+                if (jumlahbateskata != 0)
                 {
                     //cetak sesuai batas
                     string[] kata_array = list_kata.ToArray();
@@ -108,8 +111,10 @@ namespace ASD_TUGAS2
                     }
                     //menghilangkan isi list untuk berikutnya
                     list_kata.Clear();
+                   
                 }
                 batas++;
+                jumlahbateskata = 0;
             }
             if (counter == 0)
             {
