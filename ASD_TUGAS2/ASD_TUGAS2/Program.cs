@@ -105,7 +105,10 @@ namespace ASD_TUGAS2
                         jumlahbateskata++;
                     }
                 }
-                edit_toleran = batesmaksimal;
+                if (edit_toleran > batesmaksimal)
+                {
+                    edit_toleran = batesmaksimal;
+                }
                 if (jumlahbateskata != 0)
                 {
                     //cetak sesuai batas
