@@ -85,13 +85,18 @@ namespace ASD_TUGAS2
             int counter = 0;
             int batas = 0;
             int jumlahbateskata = 0;
+            int batesmaksimal=0;
             while (batas <= edit_toleran)
             {
                 foreach (string key in kata.Keys)
                 {
                     //cari yang sesuai edit distance sesuai batas,
                     int editdistance = edit_distance(select_words, key);
-                    if (editdistance == batas)
+                    if (editdistance > batesmaksimal)
+                    {
+                        batesmaksimal = editdistance;
+                    }
+                    if (editdistance == batas )
                     {
 
                         list_kata.Add((key));
@@ -100,6 +105,7 @@ namespace ASD_TUGAS2
                         jumlahbateskata++;
                     }
                 }
+                edit_toleran = batesmaksimal;
                 if (jumlahbateskata != 0)
                 {
                     //cetak sesuai batas
