@@ -233,6 +233,7 @@ namespace ASD_TUGAS2
 
         public static void Quicksort(IComparable[] elements, int left, int right)
         {
+            //Referensi dari http://snipd.net/quicksort-in-c
             int i = left, j = right;
             IComparable pivot = elements[(left + right) / 2];
             while (i <= j)
