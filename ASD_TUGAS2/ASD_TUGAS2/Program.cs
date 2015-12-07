@@ -73,6 +73,8 @@ namespace ASD_TUGAS2
                 {
                     Environment.Exit(0);
                 }
+                Console.WriteLine("Kata\t\tJumlah Edit Distance\t\tJumlah Kata dalam Text");
+                Console.WriteLine("=======================================================================================");
                 masuk_kata(select_words, edit_toleran, kata);
                 Console.Write("Tekan Sembarang untuk melihat Edit Distance lagi..");
                 Console.ReadKey();
@@ -116,7 +118,7 @@ namespace ASD_TUGAS2
                     Quicksort(kata_array, 0, kata_array.Length - 1);
                     foreach (string isi in kata_array)
                     {
-                        Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t", isi, batas, kata[isi]);
+                        Console.WriteLine("{0}" + "\t\t\t" + "{1}" + "\t\t\t\t" + "{2}", isi, batas, kata[isi]);
                     }
                     //menghilangkan isi list untuk berikutnya
                     list_kata.Clear();
