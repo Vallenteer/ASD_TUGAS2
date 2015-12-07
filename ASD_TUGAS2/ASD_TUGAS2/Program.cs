@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Made by :
+//  Alvin Julian
+//  David A. Soborono
+//  Kelvin Kristianto
+// HCI 2014,
+using System;
 using System.Data;
 using System.IO;
 using System.Collections.Generic;
@@ -8,7 +13,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Text.RegularExpressions;
-// buat hashtable
+// libary buat hashtable
 using System.Collections;
 
 namespace ASD_TUGAS2
@@ -235,7 +240,7 @@ namespace ASD_TUGAS2
 
         public static void Quicksort(IComparable[] elements, int left, int right)
         {
-            //Referensi dari http://snipd.net/quicksort-in-c
+            //Referensi dari http://snipd.net/
             int i = left, j = right;
             IComparable pivot = elements[(left + right) / 2];
             while (i <= j)
