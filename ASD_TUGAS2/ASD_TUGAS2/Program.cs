@@ -80,7 +80,7 @@ namespace ASD_TUGAS2
                 }
                 Console.WriteLine("Kata\t\tJumlah Edit Distance\t\tJumlah Kata dalam Text");
                 Console.WriteLine("=======================================================================================");
-                masuk_kata(select_words, edit_toleran, kata);
+                masuk_kata(select_words.ToLower(), edit_toleran, kata);
                 Console.Write("Tekan Sembarang untuk melihat Edit Distance lagi..");
                 Console.ReadKey();
             }
